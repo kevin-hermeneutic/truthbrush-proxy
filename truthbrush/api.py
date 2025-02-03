@@ -106,6 +106,7 @@ class Api:
                     "Authorization": "Bearer " + self.auth_id,
                     "User-Agent": USER_AGENT,
                 },
+                verify=False
             )
         except curl_cffi.curl.CurlError as e:
             logger.error(f"Curl error: {e}")
@@ -462,6 +463,7 @@ class Api:
                 headers={
                     "User-Agent": USER_AGENT,
                 },
+                verify=False
             )
             sess_req.raise_for_status()
         except requests.RequestsError as e:
